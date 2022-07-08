@@ -167,6 +167,11 @@ func (f *FilterConfigFactory) OnPluginStart(plugin types.WasmPlugin) {
 
 		// get the ID of wasm, register route
 		id, err := exports.ProxyGetID()
+
+		log.DefaultLogger.Infof("4debug: pluginName: %s, plugin: %v", plugin.PluginName(), plugin)
+		log.DefaultLogger.Infof("4debug, wasmPlugin: %v", wasmPlugin)
+		log.DefaultLogger.Infof("4debug, proxyId: %v", id)
+
 		if err != nil {
 			log.DefaultLogger.Errorf("[proxywasm][factory] createProxyWasmFilterFactory fail to get wasm id, PluginName: %s, err: %v",
 				plugin.PluginName(), err)
